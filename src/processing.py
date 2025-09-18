@@ -12,6 +12,7 @@ def filter_by_state(transactions: list[dict], state: str = "EXECUTED") -> list[d
 
     return filtered_transactions
 
+
 def sort_by_date(transactions: list[dict], reverse: bool = True) -> list[dict]:
     """
     Сортирует список словарей по дате с обработкой ошибок.
