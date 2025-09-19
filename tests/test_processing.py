@@ -39,12 +39,15 @@ def empty_transactions():
 
 
 # Тесты для filter_by_state
-@pytest.mark.parametrize("state, expected_ids", [
-    ("EXECUTED", [1, 3, 5]),
-    ("PENDING", [2]),
-    ("CANCELED", [4]),
-    ("NON_EXISTENT", []),  # Несуществующий статус
-])
+@pytest.mark.parametrize(
+    "state, expected_ids",
+    [
+        ("EXECUTED", [1, 3, 5]),
+        ("PENDING", [2]),
+        ("CANCELED", [4]),
+        ("NON_EXISTENT", []),  # Несуществующий статус
+    ],
+)
 def test_filter_by_state(sample_transactions, state, expected_ids):
     result = filter_by_state(sample_transactions, state)
     assert [item["id"] for item in result] == expected_ids
